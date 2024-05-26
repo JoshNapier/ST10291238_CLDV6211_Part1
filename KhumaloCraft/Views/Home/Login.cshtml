@@ -1,0 +1,15 @@
+﻿@model KhumaloCraft.Models.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<body>
+    <form asp-controller="Login" asp-action="Login" method="post">
+        <p>Log In!</p>
+        <input type="text" name="Email" placeholder="Email" required />
+        <input type="text" name="Name" placeholder="Name" required />
+        <button type="submit">Submit</button>
+    </form>
+</body>

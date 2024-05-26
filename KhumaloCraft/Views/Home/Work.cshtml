@@ -3,17 +3,17 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<h4>
-    Below are examples of my works that I have on offer:
-</h4>
-
-<figure>
-    <img src ="/Images/African Bowls.jpg" width="300" height="200">
-    <figcaption> Traditional Bowls: R250 each </figcaption>
-    <img src="/Images/African Vases.jpg" width="300" height="200">
-    <figcaption> Traditional Vases: R400 each </figcaption>
-    <img src="/Images/beaded_bangles.jpg" width="300" height="200">
-    <figcaption> Beaded Bangles: R125 each </figcaption>
-    <img src="/Images/Sitting Animals.jpg" width="300" height="200">
-    <figcaption> Sitting Animal Statues: R160 each </figcaption>
-</figure>
+<body>
+    <form action="/Product/Work" method="post">
+        <p Sign Up</p>
+        <input type="text" name="Name" placeholder="Name" required />
+        <input type="text" name="Price" placeholder="Price" required />
+        <input type="text" name="Category" placeholder="Category" required />
+@*         <input type="text" name="Availability" placeholder="Availability" required /> *@
+        <select name="Availability">
+            <option value="1">In Stock</option>
+            <option value="0">Out of Stock</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
