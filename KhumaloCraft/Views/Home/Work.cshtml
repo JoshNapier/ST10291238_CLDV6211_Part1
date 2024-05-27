@@ -4,16 +4,15 @@
 <h1>@ViewData["Title"]</h1>
 
 <body>
-    <form action="/Product/Work" method="post">
-        <p Sign Up</p>
+    <form asp-controller="Product" asp-action="Work" method="post">
         <input type="text" name="Name" placeholder="Name" required />
-        <input type="text" name="Price" placeholder="Price" required />
+        <input type="text" name="Price" placeholder="Price" pattern="[0-9]+" title="Please enter numbers only" required />
         <input type="text" name="Category" placeholder="Category" required />
-@*         <input type="text" name="Availability" placeholder="Availability" required /> *@
+        <label for="Availabilty">Availability</label>
         <select name="Availability">
             <option value="1">In Stock</option>
             <option value="0">Out of Stock</option>
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>

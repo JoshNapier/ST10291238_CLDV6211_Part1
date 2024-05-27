@@ -3,13 +3,13 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+<h1>Log In!</h1>
 
 <body>
     <form asp-controller="Login" asp-action="Login" method="post">
-        <p>Log In!</p>
         <input type="text" name="Email" placeholder="Email" required />
         <input type="text" name="Name" placeholder="Name" required />
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 </body>

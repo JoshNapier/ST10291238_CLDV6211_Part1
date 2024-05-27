@@ -11,7 +11,7 @@ namespace KhumaloCraft.Controllers
         public ActionResult Register(userTable m)
         {
             usrtbl.insert_User(m);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Home");
         }
 
         [HttpGet]

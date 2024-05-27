@@ -5,12 +5,12 @@ namespace KhumaloCraft.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly LoginModel login;
+        //private readonly LoginModel login;
 
-        public LoginController()
-        {
-            login = new LoginModel();
-        }
+        //public LoginController()
+        //{
+        //    login = new LoginModel();
+        //}
 
         [HttpPost]
         public ActionResult Login(string email, string name)
@@ -25,7 +25,8 @@ namespace KhumaloCraft.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return RedirectToAction("Login", "Home");
             }
         }
     }

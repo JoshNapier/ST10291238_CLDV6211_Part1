@@ -49,7 +49,42 @@ namespace KhumaloCraft.Controllers
 
         public IActionResult Products()
         {
-            return View();
+            int? userID = HttpContext.Session.GetInt32("userID");
+            List<productDisplay> products = productDisplay.SelectProducts();
+            ViewData["Products"] = products;
+            ViewData["UserID"] = userID;
+            if (userID == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //public IActionResult Transactions(int userID)
+        //{
+        //    List<transactionDisplay> transactions = SelectOrders(userID);
+        //    return View(transactions);
+        //}
+
+        public IActionResult Transactions()
+        {
+            int? userID = HttpContext.Session.GetInt32("userID");
+            ViewData["UserID"] = userID;
+            List<transactionDisplay> transactions = transactionDisplay.SelectOrders();
+            ViewData["Transactions"] = transactions;
+            List<productDisplay> products = productDisplay.SelectProducts();
+            ViewData["Products"] = products;
+            if (userID == null)
+            {
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

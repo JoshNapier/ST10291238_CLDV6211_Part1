@@ -1,0 +1,39 @@
+﻿@model KhumaloCraft.Models.transactionDisplay
+@{
+        ViewData["Title"] = "Transactions";
+        var transactions = ViewData["transactions"] as List<KhumaloCraft.Models.transactionDisplay>;
+        var userID = ViewData["userID"] as int?;
+        var products = ViewData["products"] as List<KhumaloCraft.Models.productDisplay>;
+}
+
+<h1>Welcome to the Transactions Page!</h1>
+
+@if (userID != null)
+{
+    <p>User ID: @userID</p>
+}
+
+@if (transactions == null)
+{
+    <p>
+        No orders available. <a href="/Home/Products">Go to Products Page</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in transactions)
+        {
+            <tr>
+                <td>@transaction.OrderID</td>
+                <td>@transaction.ProductID</td>
+            </tr>
+        }
+    </tbody>
+</table>

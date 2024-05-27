@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace KhumaloCraft.Models
 {
@@ -8,7 +9,7 @@ namespace KhumaloCraft.Models
 
         public int SelectUser(string email, string name)
         {
-            int userID = -1; // Default value if user is not found
+            int userID = 0; // Default value if user is not found
             using (SqlConnection con = new SqlConnection(con_string))
             {
                 string sql = "SELECT userID FROM userTable WHERE userEmail = @Email AND userName = @Name";
